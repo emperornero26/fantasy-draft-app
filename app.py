@@ -6,7 +6,7 @@
 
 from flask import Flask, request, redirect, url_for, render_template_string
 import threading
-
+import os
 app = Flask(__name__)
 
 league = ['Trey', 'Hanvey', 'Matt', 'Dakota', 'Tulenko', 'Jacob', 'Joseph', 'Drew']
@@ -147,7 +147,8 @@ def draft():
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
 
 
 # In[ ]:
